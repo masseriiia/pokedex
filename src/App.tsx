@@ -1,10 +1,11 @@
 import React from 'react';
 import './index.css';
+import {Home} from "./pages/Home/Home";
 
 const App = () => {
     return (
         <div className="app">
-            <p>Hello world!</p>
+            <Home/>
         </div>
     );
 };
