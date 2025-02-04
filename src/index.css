@@ -1,7 +1,19 @@
+@import "styles/variables.css";
+@import "styles/global.css";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: var(--color-pharagraph);
+    text-decoration: none;
 }
 
 .app {
