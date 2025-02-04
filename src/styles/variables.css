@@ -1,0 +1,16 @@
+:root {
+    --font-family: "Karla", sans-serif;
+    --second-family: "Roboto", sans-serif;
+    --third-family: "Source Sans Pro", sans-serif;
+    --font3: "Rubik", sans-serif;
+
+    --color-third: #f5db13;
+    --color-primary: #f2b807;
+    --color-second: #f28f16;
+    --color-danger: #d93e30;
+    --color-grey: #f6f7f9;
+    --color-pharagraph: #212121;
+    --color-white-light: #fdfdfd;
+    --color-goldgradient: #1d1e1d;
+}
+
