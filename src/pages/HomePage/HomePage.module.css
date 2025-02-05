@@ -1,0 +1,45 @@
+.home {
+    padding-top: 100px;
+    padding-bottom: 79px;
+    min-height: 90vh;
+    background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.home-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.home-info {
+    width: 516px;
+}
+
+.home-title {
+    margin-bottom: 64px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 72px;
+    letter-spacing: 0.06em;
+    color: #000;
+}
+
+.home-description {
+    margin-bottom: 64px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 32px;
+    color: #000;
+}
+
+.home {
+    position: relative;
+}
+
+.home-image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}

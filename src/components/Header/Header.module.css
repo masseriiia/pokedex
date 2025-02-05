@@ -1,7 +1,9 @@
 .header {
+    position: relative;
     padding: 14px;
     background: var(--color-third);
     box-shadow: 0 4px 16px 0 rgba(1, 28, 64, 0.2);
+    z-index: 9;
 }
 
 .header-wrapper {
