@@ -36,7 +36,6 @@ export const PokemonsPage = () => {
         queryFn: async () => {
             const urls = pokemonList.map(pokemon => pokemon.url)
             const responses = await Promise.all(urls.map(url => axios.get(url)))
-
             return responses.map((res) => res.data)
         },
     })
