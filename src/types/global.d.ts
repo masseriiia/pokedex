@@ -5,10 +5,3 @@ declare module '*.css' {
     const classnames: IClassNames;
     export = classnames;
 }
-
-declare module '*.svg' {
-    const src: string;
-    export default src;
-}
-
-declare module "*.png";

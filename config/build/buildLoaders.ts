@@ -26,19 +26,6 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         use: [isDev ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
     };
 
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif|svg)$/i, // Регулярное выражение для изображений
-        use: [
-            {
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[hash].[ext]', // Имя файла после обработки
-                    outputPath: 'images', // Путь вывода
-                },
-            },
-        ],
-    }
-
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -46,7 +33,6 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     }
 
     return [
-        fileLoader,
         globalCssLoader,
         typescriptLoader,
         cssLoader,
