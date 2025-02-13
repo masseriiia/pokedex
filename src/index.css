@@ -1,7 +1,23 @@
+@import "styles/variables.css";
+@import "styles/global.css";
+
+body {
+
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: var(--color-pharagraph);
+    text-decoration: none;
 }
 
 .app {
@@ -9,8 +25,9 @@
 }
 
 .container {
-    width: 100%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
+
+
