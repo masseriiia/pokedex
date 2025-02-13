@@ -1,5 +1,7 @@
 .button {
     padding: 17px 32px;
+    display: flex;
+    align-self: center;
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 23px;

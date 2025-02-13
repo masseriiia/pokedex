@@ -1,7 +1,7 @@
 import Banner from "../../assets/images/BannerComplete.png"
-import styles from './HomePage.module.css'
 import {Button} from "../../components/Button/Button";
 import {NavLink} from "react-router-dom";
+import styles from './HomePage.module.css'
 
 export const HomePage = () => {
     return (

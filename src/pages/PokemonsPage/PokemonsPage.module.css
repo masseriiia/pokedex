@@ -1,3 +1,28 @@
 .pokemons {
-
+    padding-top: 73px;
+    padding-bottom: 73px;
 }
+
+.pokemons-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+}
+
+.pokemons-title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 35px;
+    letter-spacing: 0.09em;
+    text-align: center;
+    color: #000;
+}
+
+.pokemons-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 33px;
+}
+

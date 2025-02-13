@@ -1,6 +1,6 @@
 import IconLogo from '../../assets/images/logo2.png'
-import styles from './Header.module.css'
 import {NavLink} from "react-router-dom";
+import styles from './Header.module.css'
 
 export const Header = () => {
     return (
@@ -12,16 +12,16 @@ export const Header = () => {
                     </NavLink>
                     <ul className={styles["header-items"]}>
                         <li className={styles["header-item"]}>
-                            <a href="">Home</a>
+                            <NavLink to="/">Home</NavLink>
                         </li>
                         <li className={styles["header-item"]}>
                             <NavLink to="/pokemons">Pokemons</NavLink>
                         </li>
                         <li className={styles["header-item"]}>
-                            <a href="">Legendaries</a>
+                            <NavLink to="/">Legendaries</NavLink>
                         </li>
                         <li className={styles["header-item"]}>
-                            <a href="">Documentation</a>
+                            <NavLink to="/">Documentation</NavLink>
                         </li>
                     </ul>
                 </div>

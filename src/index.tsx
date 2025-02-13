@@ -3,6 +3,9 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {HomePage} from "./pages/HomePage/HomePage";
 import {PokemonsPage} from "./pages/PokemonsPage/PokemonsPage";
 import {Layout} from "./layout/Layout";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
     {
@@ -24,5 +27,8 @@ const router = createBrowserRouter([
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-    <RouterProvider router={router}/>
+    <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}/>
+    </QueryClientProvider>
+
 );
