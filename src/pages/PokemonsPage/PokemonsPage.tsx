@@ -22,7 +22,9 @@ export const PokemonsPage = () => {
     const [debouncedValue] = useDebounce(value, 300)
 
     const { data: pokemonList, isLoading: isListLoading, error: listError } = useQuery({
-        queryKey: ['pokemonsList', offset],
+        queryKey: ['pokemonsList', offset, limit],
+        staleTime: 1000 * 60 * 10,
+        refetchOnWindowFocus: true,
         placeholderData: (previousData) => previousData,
         queryFn: async () => {
             const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`)
@@ -32,6 +34,7 @@ export const PokemonsPage = () => {
 
     const { data: pokemonDetails, isLoading: isDetailsLoading } = useQuery({
         queryKey: ['pokemonUrl', offset],
+        enabled: !!pokemonList,
         placeholderData: (previousData) => previousData,
         queryFn: async () => {
             const urls = pokemonList.map(pokemon => pokemon.url)
