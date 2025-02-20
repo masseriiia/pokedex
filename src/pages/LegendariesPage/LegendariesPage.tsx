@@ -6,8 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import {useCallback, useEffect, useMemo, useState} from "react";
 import {Loader} from "../../components/Loader/Loader";
-import GoldenPokeball from '../../assets/images/goldenPokeball.svg'
-import GoldenPokeball1 from '../../assets/images/goldenPokeball1.png'
+import GoldenPokeball from '../../assets/images/goldenPokeball.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -119,7 +118,7 @@ export const LegendariesPage = () => {
                                                  alt="Pokemon"/>
                                             <div className={styles["legendaries-swiper-content"]}>
                                                 <p className={styles["legendaries-swiper-name"]}>{pokemon.name}</p>
-                                                <img className={styles["legendaries-swiper-img"]} src={GoldenPokeball1} alt="GoldenPokeball"/>
+                                                <img className={styles["legendaries-swiper-img"]} src={GoldenPokeball} alt="GoldenPokeball"/>
                                             </div>
                                         </div>
                                     </SwiperSlide>
