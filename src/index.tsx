@@ -5,6 +5,7 @@ import {PokemonsPage} from "./pages/PokemonsPage/PokemonsPage";
 import {Layout} from "./layout/Layout";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {NotFoundPage} from "./pages/NotFoundPage/NotFoundPage";
+import {LegendariesPage} from "./pages/LegendariesPage/LegendariesPage";
 
 const queryClient = new QueryClient()
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/pokemons",
                 element: <PokemonsPage/>
+            },
+            {
+                path: "/legendaries",
+                element: <LegendariesPage/>
             }
         ]
     },

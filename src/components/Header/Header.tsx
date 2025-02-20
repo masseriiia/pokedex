@@ -18,7 +18,7 @@ export const Header = () => {
                             <NavLink to="/pokemons">Pokemons</NavLink>
                         </li>
                         <li className={styles["header-item"]}>
-                            <NavLink to="/">Legendaries</NavLink>
+                            <NavLink to="/legendaries">Legendaries</NavLink>
                         </li>
                         <li className={styles["header-item"]}>
                             <NavLink to="/">Documentation</NavLink>
