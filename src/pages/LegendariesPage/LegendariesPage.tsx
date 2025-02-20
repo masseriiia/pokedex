@@ -1,4 +1,3 @@
-import styles from './LegendariesPage.module.css'
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
@@ -9,9 +8,9 @@ import {Loader} from "../../components/Loader/Loader";
 import GoldenPokeball from '../../assets/images/goldenPokeball.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
+import styles from './LegendariesPage.module.css'
 
 export const LegendariesPage = () => {
-    const [selectedPokemon, setSelectedPokemon] = useState<any | null>(null);
     const [offset, setOffset] = useState(0)
     const [pokemon, setPokemon] = useState(null)
     const limit = 1000
@@ -67,8 +66,6 @@ export const LegendariesPage = () => {
         const pokemonLeg = legendaryPokemons.find((item) => item.id === id)
         if (pokemonLeg) setPokemon(pokemonLeg);
     }, [legendaryPokemons])
-
-    console.log(pokemonSpecies)
 
     return (
         <div className={styles["legendaries"]}>
