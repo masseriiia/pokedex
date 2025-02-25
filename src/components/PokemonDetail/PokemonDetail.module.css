@@ -8,13 +8,26 @@
     gap: 25px;
 }
 
-.pokemon-info {
+.pokemon-detail-info {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
+.pokemon-detail-actions {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pokemon-detail-button {
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+}
+
 .pokemon-detail-id {
-    margin-bottom: 25px;
     display: flex;
     align-items: center;
     justify-content: center;

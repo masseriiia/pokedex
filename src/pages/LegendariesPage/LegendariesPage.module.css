@@ -49,7 +49,7 @@
 }
 
 .legendaries-swiper {
-    width: 127px;
+    width: 155px;
     background-color: #f5db13;
     border-radius: 16px;
     cursor: pointer;
@@ -128,7 +128,6 @@
 }
 
 .swiper-button-prev {
-
     left: -70px;
     top: 50%;
     transform: translateY(-50%);

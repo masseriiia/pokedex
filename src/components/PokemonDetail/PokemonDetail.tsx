@@ -1,8 +1,12 @@
 import axios from "axios";
 import {useQuery} from "@tanstack/react-query";
+import {useCallback, useEffect, useState} from "react";
+import {useFavoritePokemonsContext} from "../../context/FavoritePokemonsContext";
 import styles from "./PokemonDetail.module.css";
 
 export const PokemonDetail = ({selectedPokemon}: any) => {
+    const [isFavorite, setIsFavorite] = useState(false)
+    const { addFavorite, removeFavorite, favorites } = useFavoritePokemonsContext();
 
     const { data } = useQuery({
         queryKey: ['pokemon'],
@@ -12,14 +16,36 @@ export const PokemonDetail = ({selectedPokemon}: any) => {
         }
     })
 
+    useEffect(() => {
+        if (favorites) {
+            const isAlreadyFavorite = favorites.some(
+                (fav) => fav.id === selectedPokemon.id
+            );
+            setIsFavorite(isAlreadyFavorite);
+        }
+    }, [favorites, selectedPokemon]);
+
+    const handleToggleFavorite = useCallback(() => {
+        if (isFavorite) {
+            removeFavorite(selectedPokemon.id);
+        } else {
+            addFavorite(selectedPokemon);
+        }
+        setIsFavorite((prev) => !prev);
+    }, [isFavorite, selectedPokemon, addFavorite, removeFavorite]);
+
+
     return (
         <div className={styles["pokemon-detail"]}>
             <div className={styles["pokemon-detail-wrapper"]}>
                 <img width='169px' height='139px' src={selectedPokemon.sprites.front_shiny} alt="Pokemon"/>
                 <div>
-                    <div className={styles["pokemon-info"]}>
+                    <div className={styles["pokemon-detail-info"]}>
                         <p className={styles["pokemon-detail-name"]}>{selectedPokemon.forms[0].name}</p>
-                        <p className={styles["pokemon-detail-id"]}>{selectedPokemon.id}</p>
+                        <div className={styles["pokemon-detail-actions"]}>
+                            {isFavorite ? <button className={styles["pokemon-detail-button"]} onClick={handleToggleFavorite}>Delete</button> : <button className={styles["pokemon-detail-button"]} onClick={handleToggleFavorite}>Add to Favorites</button> }
+                            <p className={styles["pokemon-detail-id"]}>{selectedPokemon.id}</p>
+                        </div>
                     </div>
                     <div className={styles["pokemon-detail-description"]}>
                         <p>{selectedPokemon.abilities[0].ability.name}</p>

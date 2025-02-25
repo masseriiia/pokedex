@@ -30,6 +30,7 @@ export const PokemonItem = ({ item, onSelect }: PokemonItemProps) => {
                     </div>
                 </div>
                 <img width='169px' height='139px' src={item.sprites.front_shiny} alt="Pokemon"/>
+
             </div>
         </div>
     )

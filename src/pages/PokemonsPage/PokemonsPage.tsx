@@ -60,7 +60,6 @@ export const PokemonsPage = () => {
     }, [filteredData]);
 
     useEffect(() => {
-
         if (debouncedValue.trim() === '') {
             setFilteredData(allPokemons)
         } else {
@@ -114,7 +113,7 @@ export const PokemonsPage = () => {
                                 ))
                             }
                         </div>
-                    {hasMore && <Button onClickButton={fetchMoreData}>Показать ещё</Button>}
+                    {hasMore && <Button onClickButton={fetchMoreData}>Show more</Button>}
                 </div>
             </div>
         </section>
