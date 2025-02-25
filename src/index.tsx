@@ -6,6 +6,8 @@ import {Layout} from "./layout/Layout";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {NotFoundPage} from "./pages/NotFoundPage/NotFoundPage";
 import {LegendariesPage} from "./pages/LegendariesPage/LegendariesPage";
+import {FavoritesPage} from "./pages/FavoritesPage/FavoritesPage";
+import {PokemonProvider} from "./context/FavoritePokemonsContext";
 
 const queryClient = new QueryClient()
 
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "/legendaries",
                 element: <LegendariesPage/>
+            },
+            {
+                path: "/favorites",
+                element: <FavoritesPage/>
             }
         ]
     },
@@ -38,7 +44,8 @@ const router = createBrowserRouter([
 const root = createRoot(document.getElementById('root'));
 root.render(
     <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router}/>
+        <PokemonProvider>
+            <RouterProvider router={router}/>
+        </PokemonProvider>
     </QueryClientProvider>
-
 );

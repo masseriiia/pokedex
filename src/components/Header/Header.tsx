@@ -21,7 +21,7 @@ export const Header = () => {
                             <NavLink to="/legendaries">Legendaries</NavLink>
                         </li>
                         <li className={styles["header-item"]}>
-                            <NavLink to="/">Documentation</NavLink>
+                            <NavLink to="/favorites">Favorites</NavLink>
                         </li>
                     </ul>
                 </div>
