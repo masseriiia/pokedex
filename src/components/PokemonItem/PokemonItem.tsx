@@ -1,8 +1,16 @@
 import styles from './PokemonItem.module.css'
 
+interface PokemonProps {
+    id: number;
+    forms: { name: string }[];
+    stats: { base_stat: number; stat: { name: string } }[];
+    types: { slot: number; type: { name: string } }[];
+    sprites: { front_shiny?: string };
+}
+
 interface PokemonItemProps {
-    item: any,
-    onSelect: (id) => void
+    item: PokemonProps,
+    onSelect: (id: number) => void
 }
 
 export const PokemonItem = ({ item, onSelect }: PokemonItemProps) => {

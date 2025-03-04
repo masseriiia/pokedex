@@ -14,7 +14,7 @@
 
 .header-items {
     display: flex;
-    gap: 66px;
+    gap: 46px;
 }
 
 .header-item {
@@ -25,12 +25,17 @@
     color: var(--color-pharagraph);
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+
+    a {
+        padding: 10px;
+    }
+
 }
 
 .header-item:focus {
-    box-shadow: inset 0 -2px 0 var(--color-pharagraph); /* Подчеркивание с помощью тени */
+    box-shadow: inset 0 -2px 0 var(--color-pharagraph);
 }
 
 .header-item:hover {
-    box-shadow: inset 0 -2px 0 var(--color-pharagraph); /* Подчеркивание с помощью тени */
+    box-shadow: inset 0 -2px 0 var(--color-pharagraph);
 }

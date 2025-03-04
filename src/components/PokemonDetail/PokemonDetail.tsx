@@ -4,7 +4,19 @@ import {useCallback, useEffect, useState} from "react";
 import {useFavoritePokemonsContext} from "../../context/FavoritePokemonsContext";
 import styles from "./PokemonDetail.module.css";
 
-export const PokemonDetail = ({selectedPokemon}: any) => {
+interface Pokemon {
+    id: number;
+    forms: { name: string }[];
+    abilities: { ability: { name: string; url: string } }[];
+    stats: { base_stat: number; stat: { name: string } }[];
+    sprites: { front_shiny?: string };
+}
+
+interface selectedPokemonProps {
+    selectedPokemon: Pokemon
+}
+
+export const PokemonDetail = ({selectedPokemon}: selectedPokemonProps) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const { addFavorite, removeFavorite, favorites } = useFavoritePokemonsContext();
 
@@ -54,7 +66,7 @@ export const PokemonDetail = ({selectedPokemon}: any) => {
                     <div className={styles["pokemon-detail-stats"]}>
                         {
                             selectedPokemon.stats.map(element => (
-                                <div className={styles["pokemon-detail-stat"]}>
+                                <div key={element.stat.name} className={styles["pokemon-detail-stat"]}>
                                     <p className={styles["pokemon-detail-stat-num"]}>{element.base_stat}</p>
                                     <p className={styles["pokemon-detail-stat-name"]}>{element.stat.name}</p>
                                 </div>

@@ -11,27 +11,20 @@ import 'swiper/css/navigation';
 import styles from './LegendariesPage.module.css'
 
 export const LegendariesPage = () => {
+    const MIN_30_IN_MS = 1000 * 60 * 30;
+
     const [offset, setOffset] = useState(0)
     const [pokemon, setPokemon] = useState(null)
     const limit = 1000
 
     const { data: pokemonList, isLoading: isListLoading, error: listError } = useQuery({
         queryKey: ['pokemonsList', offset, limit],
-        staleTime: 1000 * 60 * 10,
+        staleTime: MIN_30_IN_MS,
         refetchOnWindowFocus: true,
         placeholderData: (previousData) => previousData,
         queryFn: async () => {
             const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`)
-            return data.results
-        },
-    })
-
-    const { data: pokemonDetails, isLoading: isDetailsLoading } = useQuery({
-        queryKey: ['pokemonUrl'],
-        enabled: !!pokemonList,
-        placeholderData: (previousData) => previousData,
-        queryFn: async () => {
-            const urls = pokemonList?.map(pokemon => pokemon.url)
+            const urls = data.results?.map(pokemon => pokemon.url)
             const responses = await Promise.all(urls.map(url => axios.get(url)))
             return responses.map((res) => res.data)
         },
@@ -39,21 +32,21 @@ export const LegendariesPage = () => {
 
     const { data: pokemonSpecies, isLoading: isPokemonSpeciesLoading } = useQuery({
         queryKey: ['pokemonSpecies', offset],
-        enabled: !!pokemonDetails && !isDetailsLoading,
+        enabled: !!pokemonList && !listError,
         placeholderData: (previousData) => previousData,
         queryFn: async () => {
-            if (!pokemonDetails) return [];
-            const species = pokemonDetails.map(pokemon => pokemon.species.url)
+            if (!pokemonList) return [];
+            const species = pokemonList.map(pokemon => pokemon.species.url)
             const responses = await Promise.all(species.map(url => axios.get(url)))
             return responses.map((res) => res.data)
         },
     })
 
     const legendaryPokemons = useMemo(() => {
-        return pokemonDetails?.filter(pokemon => {
+        return pokemonList?.filter(pokemon => {
             const species = pokemonSpecies?.find(species => species.id === pokemon.id)
             return species?.is_legendary
-        })}, [pokemonDetails, pokemonSpecies])
+        })}, [pokemonList, pokemonSpecies])
 
     useEffect(() => {
         if (legendaryPokemons && legendaryPokemons.length > 0) {
@@ -71,7 +64,7 @@ export const LegendariesPage = () => {
         <div className={styles["legendaries"]}>
             <div className="container">
                 <h1 className={styles["legendaries-title"]}>Legendaries</h1>
-                {isListLoading || isDetailsLoading || isPokemonSpeciesLoading ? (
+                {isListLoading || isPokemonSpeciesLoading ? (
                     <Loader/>
                 ) : (
                     <div className={styles["legendaries-wrapper"]}>
@@ -123,9 +116,11 @@ export const LegendariesPage = () => {
 
                             </Swiper>
                             <div className={`${styles['swiper-button-prev']} swiper-button-prev-custom`}>
-                                <BiSolidLeftArrow/></div>
+                                <BiSolidLeftArrow/>
+                            </div>
                             <div className={`${styles['swiper-button-next']} swiper-button-next-custom`}>
-                                <BiSolidRightArrow/></div>
+                                <BiSolidRightArrow/>
+                            </div>
                         </div>
                     </div>
                 )}
