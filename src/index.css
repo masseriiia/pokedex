@@ -1,10 +1,6 @@
 @import "styles/variables.css";
 @import "styles/global.css";
 
-body {
-
-}
-
 * {
     margin: 0;
     padding: 0;

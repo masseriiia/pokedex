@@ -1,9 +1,10 @@
 .pokemons {
     padding-top: 73px;
-    padding-bottom: 73px;
+    padding-bottom: 23px;
 }
 
 .pokemons-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,10 +20,24 @@
     color: #000;
 }
 
-.pokemons-items {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 33px;
+.pokemons-grid-container {
+    height: 480px;
+
 }
+
+.pokemons-grid {
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+}
+
+.pokemons-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.pokemons-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
 
